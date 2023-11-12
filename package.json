@@ -1,0 +1,36 @@
+{
+  "name": "openvm",
+  "version": "1.0.0",
+  "packageManager": "bun@1.0.8",
+  "description": "Open source, secure and fast virtual machine to run Oxygen Byte Codes.",
+  "main": "src/openvm.js",
+  "type": "module",
+  "keywords": [
+    "vm",
+    "vm-engine",
+    "virtualmachine",
+    "openvm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-vm/openvm.git"
+  },
+  "author": "Kadir",
+  "license": "MIT",
+  "bugs": "k4dirrcelik@gmail.com",
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "format": "prettier . -w"
+  },
+  "dependencies": {
+    "prettier": "^3.0.3"
+  }
+}
