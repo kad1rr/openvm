@@ -1,7 +1,7 @@
 # OpenVM Short-Term Memory (SHM) Documentation
 
-This document provides information about the `SHM` class, which represents short-term memory
-in the OpenVM project.
+This document provides information about the `SHM` class, which represents short-term memory in the
+OpenVM project.
 
 ## Table of Contents
 
@@ -13,9 +13,9 @@ in the OpenVM project.
 
 ## Introduction
 
-The `SHM` class is designed to simulate short-term memory in the OpenVM project. Unlike
-long-term memory, the contents of short-term memory are periodically reset, making it suitable for
-temporary storage or quick access during program execution.
+The `SHM` class is designed to simulate short-term memory in the OpenVM project. Unlike long-term
+memory, the contents of short-term memory are periodically reset, making it suitable for temporary
+storage or quick access during program execution.
 
 ## Constructor
 

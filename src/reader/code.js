@@ -11,7 +11,6 @@ class Reader {
   constructor(source, memory) {
     this.memory = memory
     this.stdout = []
-    this.run(source)
   }
 
   /**
@@ -19,7 +18,6 @@ class Reader {
    */
   run(source) {
     let cursor = [0, 0]
-
     source.forEach(command => {
       const [action, argument] = command
       switch (action.toLowerCase()) {

@@ -4,6 +4,8 @@ OpenVM is a simple virtual machine designed for educational purposes. It include
 and compilers to execute Oxygen Byte Code (OBC) and provides different types of memory, such as
 long-term memory and short-term memory.
 
+> Please read [commands](https://github.com/kad1rr/openvm/blob/master/docs/commands.md)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -45,8 +47,18 @@ const file = fs.readFileSync('your-file.o', {
 vm.run(file)
 ```
 
-Just import your Oxygen Readable Code file and create a new VM instance.
-Now you are ready to run your code.
+Just import your Oxygen Readable Code file and create a new VM instance. Now you are ready to run
+your code.
+
+`your-file.o`
+
+```oxygen
+jmp 0x0
+set hello%20world
+put 0x0
+exit 0
+```
 
 ## License
+
 [MIT](https://github.com/kad1rr/openvm/blob/master/LICENSE)

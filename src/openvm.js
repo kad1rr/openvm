@@ -8,7 +8,7 @@ class VM {
   constructor() {
     this.memory = new LongMemory()
     this.shm = new SHM()
-    this.reader = new Reader()
+    this.reader = new Reader([], this.shm)
     this.stdout = []
   }
 
@@ -16,10 +16,10 @@ class VM {
     if (typeof data === 'string') {
       const command = CompileToOBC(data)
       this.reader.run(command)
-      this.reader.stdout.forEach(line => console.log(line))
+      this.reader.stdout.forEach(line => console.log(line.replace(/%20/gi, ' ')))
     } else {
       this.reader.run(data)
-      this.reader.stdout.forEach(line => console.log(line))
+      this.reader.stdout.forEach(line => console.log(line.replace(/%20/gi, ' ')))
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "openvm",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "packageManager": "bun@1.0.8",
   "description": "Open source, secure and fast virtual machine to run Oxygen Byte Codes.",
   "main": "src/openvm.js",
@@ -31,6 +31,7 @@
     "format": "prettier . -w"
   },
   "dependencies": {
+    "openvm": "^1.0.1",
     "prettier": "^3.0.3"
   }
 }
