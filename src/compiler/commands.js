@@ -16,6 +16,7 @@ const COMMANDS = {
   mod: 'ff',
   exit: 'aa',
   put: 'x5',
+  comment: ';'
 }
 
 export default COMMANDS

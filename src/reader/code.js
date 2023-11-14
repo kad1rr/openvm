@@ -1,6 +1,7 @@
 // Reader for OBC (Oxygen Byte Code)
 // https://github.com/kad1rr/openvm/blob/master/docs/code.md
 
+import chalk from 'chalk'
 import COMMANDS from '../compiler/commands.js'
 
 class Reader {
@@ -18,6 +19,17 @@ class Reader {
    */
   run(source) {
     let cursor = [0, 0]
+
+    if (!source) {
+      this.stdout.push(
+        chalk.red(
+          'No source specified or founded. Please make sure you have a valid source file and format',
+        )
+      )
+      this.run(['aa 1'])
+      return
+    }
+
     source.forEach(command => {
       const [action, argument] = command
       switch (action.toLowerCase()) {
@@ -90,6 +102,8 @@ class Reader {
           break
         case COMMANDS.cmp:
           this.memory.set(cursor[0], cursor[1], this.memory.get(cursor[0], cursor[1]) == argument)
+          break
+        case COMMANDS.comment:
           break
         default:
           this.stdout.push('error: unexpected command code ---> ' + action)

@@ -41,7 +41,7 @@ import { VM } from 'openvm'
 import fs from 'fs'
 
 const vm = new VM()
-const file = fs.readFileSync('your-file.o', {
+const file = fs.readFileSync('./your-file.o', {
   encoding: 'utf8',
 })
 vm.run(file)
@@ -53,10 +53,11 @@ your code.
 `your-file.o`
 
 ```oxygen
-jmp 0x0
-set hello%20world
-put 0x0
-exit 0
+; Now you are can use comments!
+jmp 0x0                 ; Set cursor to 0x0
+set hello%20world       ; Set 0x0 to hello world (%20 equals to space)
+put 0x0                 ; Put it on stdout
+exit 0                  ; Exit the program without errors
 ```
 
 ## License
