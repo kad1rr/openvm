@@ -18,6 +18,7 @@ represented by a mnemonic and a corresponding hexadecimal opcode.
 - [cmps](#cmps)
 - [cmp](#cmp)
 - [exit](#exit)
+- [run](#run)
 
 ## add
 
@@ -96,6 +97,11 @@ represented by a mnemonic and a corresponding hexadecimal opcode.
 - **Mnemonic:** exit
 - **Opcode:** aa
 - **Description:** Exits the program.
+
+## run
+- **Mnemonic:** run
+- **Opcode:** o1
+- **Description:** Runs a 2rd program.
 
 ## Note
 
