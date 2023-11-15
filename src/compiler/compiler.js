@@ -25,7 +25,8 @@ const handleCommandsORC = (action, argument) => {
       .replace(COMMANDS.mul, 'mul')
       .replace(COMMANDS.put, 'put')
       .replace(COMMANDS.set, 'set')
-      .replace(COMMANDS.sub, 'sub'),
+      .replace(COMMANDS.sub, 'sub')
+      .replace(COMMANDS.run, 'run'),
     argument,
   ]
 }
@@ -52,7 +53,8 @@ const handleCommandsOBC = (action, argument) => {
       .replace('mul', COMMANDS.mul)
       .replace('put', COMMANDS.put)
       .replace('set', COMMANDS.set)
-      .replace('sub', COMMANDS.sub),
+      .replace('sub', COMMANDS.sub)
+      .replace('run', COMMANDS.run),
     argument,
   ]
 }

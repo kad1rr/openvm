@@ -3,6 +3,7 @@
 
 import chalk from 'chalk'
 import COMMANDS from '../compiler/commands.js'
+import { CompileToOBC } from '../openvm.js'
 
 class Reader {
   /**
@@ -24,7 +25,7 @@ class Reader {
       this.stdout.push(
         chalk.red(
           'No source specified or founded. Please make sure you have a valid source file and format',
-        )
+        ),
       )
       this.run(['aa 1'])
       return
@@ -102,6 +103,12 @@ class Reader {
           break
         case COMMANDS.cmp:
           this.memory.set(cursor[0], cursor[1], this.memory.get(cursor[0], cursor[1]) == argument)
+          break
+        case COMMANDS.run:
+          const source = this.memory
+            .get(argument.split('x')[0], argument.split('x')[1])
+            .replace('%20', ' ')
+          this.run(CompileToOBC(source))
           break
         case COMMANDS.comment:
           break
