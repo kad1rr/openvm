@@ -4,6 +4,7 @@
 import chalk from 'chalk'
 import COMMANDS from '../compiler/commands.js'
 import { CompileToOBC } from '../openvm.js'
+import fs from 'fs'
 
 class Reader {
   /**
@@ -108,7 +109,16 @@ class Reader {
           const source = this.memory
             .get(argument.split('x')[0], argument.split('x')[1])
             .replace('%20', ' ')
+            .replace('.', '\n')
           this.run(CompileToOBC(source))
+          break
+        case COMMANDS.imp:
+          const file = fs.readFileSync(argument).toString()
+          this.run(CompileToOBC(file))
+          break
+        case COMMANDS.$imp:
+          const file$ = fs.readFileSync(argument).toString()
+          this.run(file$)
           break
         case COMMANDS.comment:
           break

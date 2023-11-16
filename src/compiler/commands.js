@@ -18,6 +18,8 @@ const COMMANDS = {
   put: 'x5',
   comment: ';',
   run: 'o1',
+  imp: 'q0',
+  $imp: 'q1',
 }
 
 export default COMMANDS
