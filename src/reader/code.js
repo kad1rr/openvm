@@ -120,6 +120,9 @@ class Reader {
           const file$ = fs.readFileSync(argument).toString()
           this.run(file$)
           break
+        case COMMANDS.del:
+          this.memory.set(argument.split('x')[0], argument.split('x')[1], 0)
+          break
         case COMMANDS.comment:
           break
         default:

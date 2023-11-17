@@ -20,6 +20,7 @@ const COMMANDS = {
   run: 'o1',
   imp: 'q0',
   $imp: 'q1',
+  del: '9g',
 }
 
 export default COMMANDS
