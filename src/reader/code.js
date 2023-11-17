@@ -123,6 +123,11 @@ class Reader {
         case COMMANDS.del:
           this.memory.set(argument.split('x')[0], argument.split('x')[1], 0)
           break
+        case COMMANDS.if:
+          if (this.memory.get(cursor[0], cursor[1])) {
+            this.run(['o1', argument])
+          }
+          break
         case COMMANDS.comment:
           break
         default:

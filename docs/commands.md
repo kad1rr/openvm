@@ -116,6 +116,18 @@ represented by a mnemonic and a corresponding hexadecimal opcode.
 - **Opcode:** q1
 - **Description:** Runs a 2rd file but file format is OBC not ORC
 
+## del
+
+- **Mnemonic:** del
+- **Opcode:** 9g
+- **Description:** Deletes a value on memory
+
+## if
+
+- **Mnemonic:** if
+- **Opcode:** p4
+- **Description:** Checks current memory value if it is true runs a 3rd program which is argument
+
 ## Note
 
 - Some mnemonics like `put` and `mod` appear multiple times in the provided code. It's recommended
