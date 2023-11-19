@@ -22,6 +22,7 @@ const COMMANDS = {
   $imp: 'q1',
   del: '9g',
   if: 'p4',
+  else: 'f4',
 }
 
 export default COMMANDS

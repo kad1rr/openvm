@@ -30,6 +30,7 @@ const handleCommandsORC = (action, argument) => {
       .replace(COMMANDS.imp, 'imp')
       .replace(COMMANDS.$imp, '$imp')
       .replace(COMMANDS.if, 'if')
+      .replace(COMMANDS.else, 'else')
       .replace(COMMANDS.del, 'del'),
     argument,
   ]
@@ -62,6 +63,7 @@ const handleCommandsOBC = (action, argument) => {
       .replace('imp', COMMANDS.imp)
       .replace('$imp', COMMANDS.$imp)
       .replace('if', COMMANDS.if)
+      .replace('else', COMMANDS.else)
       .replace('del', COMMANDS.del),
 
     argument,
