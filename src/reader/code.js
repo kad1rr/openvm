@@ -3,7 +3,8 @@
 
 import chalk from 'chalk'
 import COMMANDS from '../compiler/commands.js'
-import { CompileToOBC } from '../openvm.js'
+import { CompileToOBC, SHM } from '../openvm.js'
+import Http from '../libs/http.js'
 import fs from 'fs'
 
 class Reader {
@@ -11,8 +12,8 @@ class Reader {
    * @param {string[] | string[][]} source
    * @param {LongMemory} memory
    */
-  constructor(source, memory) {
-    this.memory = memory
+  constructor(memory) {
+    this.memory = new SHM()
     this.stdout = []
   }
 
@@ -39,7 +40,14 @@ class Reader {
           cursor = argument.toLowerCase().split('x').map(Number)
           break
         case COMMANDS.set:
-          this.memory.set(cursor[0], cursor[1], argument)
+          if (argument.toLowerCase().startsWith('file://')) {
+            const context = fs.readFileSync(argument.replace('file://', ''), {
+              encoding: 'utf8',
+            })
+            this.memory.set(cursor[0], cursor[1], context)
+          } else {
+            this.memory.set(cursor[0], cursor[1], argument)
+          }
           break
         case COMMANDS.put:
           this.stdout.push(this.memory.get(cursor[0], cursor[1]))
@@ -113,8 +121,13 @@ class Reader {
           this.run(CompileToOBC(source))
           break
         case COMMANDS.imp:
-          const file = fs.readFileSync(argument).toString()
-          this.run(CompileToOBC(file))
+          if (argument === 'http') {
+            const http = new Http(this.memory)
+            http.handle()
+          } else {
+            const file = fs.readFileSync(argument).toString()
+            this.run(CompileToOBC(file))
+          }
           break
         case COMMANDS.$imp:
           const file$ = fs.readFileSync(argument).toString()

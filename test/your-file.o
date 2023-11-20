@@ -1,3 +1,4 @@
+; --- SIMPLE TEST ---
 ; Now you are can use comments!
 jmp 0x0                 ; Set cursor to 0x0
 set hello%20world       ; Set 0x0 to hello world (%20 equals to space)
@@ -5,3 +6,10 @@ jmp 0x1                 ; Set cursor to 0x1
 set put%200x0           ; Setting 0x1 to command put 0x0 (%20 equals to space)
 run 0x1                 ; Run 0x1
 exit 0                  ; Exit the program without errors
+; --- TEST 2 ---
+jmp 0x0
+set file://test/index.js
+put 0x0
+exit 0
+; --- TEST 3 ---
+imp http

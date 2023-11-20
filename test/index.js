@@ -1,4 +1,4 @@
-import { VM, OBCExecutor } from '../src/openvm.js'
+import { VM } from '../src/openvm.js'
 import fs from 'fs'
 
 const vm = new VM()
